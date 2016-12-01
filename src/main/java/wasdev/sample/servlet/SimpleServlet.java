@@ -21,7 +21,18 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.getWriter().print("Hello World! Welcome to the Financial Advisor Site!");
+        response.getWriter().print(getMessage());
+    }
+    
+    public static String getMessage() {
+    	String str1 = "Hello World! Welcome to the Financial Advisor Site!";
+    	String str2 = "A budget tells us what we can't afford, but it doesn't keep us from buying it!";
+    	long time = System.currentTimeMillis();
+    	if ( (time & 1) == 0 ) { 
+    		return str1;
+    	} else { 
+    		return str2;
+    	}
     }
 
 }
